@@ -3,4 +3,8 @@
 </template>
 
 <script></script>
-<style></style>
+<style>
+body {
+  background-color: aqua;
+}
+</style>
