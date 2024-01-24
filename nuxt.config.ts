@@ -9,10 +9,10 @@ export default defineNuxtConfig({
   ],
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   eslint: {
-    lintOnStart: true,
+    lintOnStart: false,
   },
   stylelint: {
-    lintOnStart: true,
+    lintOnStart: false,
   },
   swiper: {
     // Swiper options

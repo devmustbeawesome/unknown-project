@@ -7,9 +7,11 @@
           placeholder="New task"
           @keyup.enter="addItemToList"
         ></MyInput>
-        <button type="button" class="add-to-do-button" @click="addItemToList">
-          <font-awesome-icon icon="plus" />
-        </button>
+        <div>
+          <button type="button" class="add-to-do-button" @click="addItemToList">
+            <font-awesome-icon icon="plus" />
+          </button>
+        </div>
       </div>
       <div class="search-wrapper">
         <MyInput
@@ -78,7 +80,6 @@ const filteredList = computed(() =>
 #my_to_do_list {
   position: relative;
   background-color: rgb(22, 22, 22);
-  width: 100%;
   padding: 10px 20px;
   border-radius: 5px;
 }
@@ -86,7 +87,7 @@ const filteredList = computed(() =>
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid black;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 .add-wrapper {
   display: flex;
@@ -102,5 +103,13 @@ const filteredList = computed(() =>
   font-weight: 400;
   line-height: 1.5;
   text-align: center;
+}
+@media (max-width: 600px) {
+  .search-wrapper {
+    display: none;
+  }
+  #my_to_do_list {
+    padding: 10px 1px;
+  }
 }
 </style>

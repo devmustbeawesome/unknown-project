@@ -68,6 +68,7 @@ function updateValue(value) {
 </script>
 <style>
 .input-group {
+  width: 100%;
   margin: 0;
   font-family: inherit;
   position: relative;

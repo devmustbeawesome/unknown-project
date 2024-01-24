@@ -87,6 +87,9 @@ watch(
   padding: 5px;
   align-items: center;
 }
+.task-control {
+  display: flex;
+}
 .task-control button {
   color: white;
   width: 34px;
@@ -100,6 +103,7 @@ watch(
   text-align: center;
 }
 .task-input {
+  width: 100%;
   background: inherit;
   border: none;
   color: white;
@@ -119,5 +123,13 @@ watch(
   text-decoration-line: underline;
   text-decoration-color: green;
   text-underline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .task-control {
+    flex-direction: column;
+  }
+  .task-control button {
+    margin: 0;
+  }
 }
 </style>

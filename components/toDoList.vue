@@ -39,5 +39,6 @@ const completeTask = (id: number) => {
 <style>
 .to-do-list {
   padding: 0;
+  margin: 0;
 }
 </style>
