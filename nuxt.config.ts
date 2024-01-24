@@ -7,8 +7,13 @@ export default defineNuxtConfig({
     "@nuxtjs/stylelint-module",
     "nuxt-swiper",
   ],
-  // eslint: {},
-  // stylelint: {},
+  css: ["@fortawesome/fontawesome-svg-core/styles.css"],
+  eslint: {
+    lintOnStart: true,
+  },
+  stylelint: {
+    lintOnStart: true,
+  },
   swiper: {
     // Swiper options
     //  ----------------------
