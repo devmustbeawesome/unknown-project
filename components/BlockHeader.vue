@@ -33,12 +33,13 @@ header .nav-list {
   padding: 0 10px;
 }
 header .nav-list li {
-  display: block;
+  list-style-type: none;
 }
 .nav-list .router-link {
+  display: block;
   text-decoration: none;
   color: white;
-  padding: 15px;
+  padding: 10px;
   border-right: 1px solid black;
 }
 .nav-list .router-link.router-link-active {
