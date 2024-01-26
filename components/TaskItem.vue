@@ -106,6 +106,7 @@ watch(
   font-weight: 400;
   line-height: 1.5;
   text-align: center;
+  cursor: pointer;
 }
 .task-input {
   width: 100%;

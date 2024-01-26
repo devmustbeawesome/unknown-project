@@ -108,6 +108,7 @@ const filteredList = computed(() =>
   font-weight: 400;
   line-height: 1.5;
   text-align: center;
+  cursor: pointer;
 }
 @media (max-width: 600px) {
   .search-wrapper {
