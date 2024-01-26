@@ -1,38 +1,40 @@
 <template>
-  <li v-if="state == 'new'" class="task-row" :class="state">
-    <div>
-      <input
-        class="task-input"
-        block
-        type="text"
-        placeholder="Пустая задача"
-        :value="computedValue"
-        @change="(e: Event) => (computedValue = e.target?.value)"
-      />
+  <li class="task-item">
+    <div v-if="state == 'new'" class="task-row" :class="state">
+      <div>
+        <input
+          class="task-input"
+          block
+          type="text"
+          placeholder="Пустая задача"
+          :value="computedValue"
+          @change="(e: Event) => (computedValue = e.target?.value)"
+        />
+      </div>
+      <div class="task-control">
+        <button v-if="state == 'new'" @click="completeTask">
+          <font-awesome-icon :icon="['fas', 'check']" />
+        </button>
+        <button v-if="state == 'new'" @click="focusInput">
+          <font-awesome-icon :icon="['fas', 'pencil']" />
+        </button>
+        <button @click="deleteTask">
+          <font-awesome-icon :icon="['fas', 'trash']" />
+        </button>
+      </div>
     </div>
-    <div class="task-control">
-      <button v-if="state == 'new'" @click="completeTask">
-        <font-awesome-icon :icon="['fas', 'check']" />
-      </button>
-      <button v-if="state == 'new'" @click="focusInput">
-        <font-awesome-icon :icon="['fas', 'pencil']" />
-      </button>
-      <button @click="deleteTask">
-        <font-awesome-icon :icon="['fas', 'trash']" />
-      </button>
-    </div>
-  </li>
-  <li v-else class="task-row completed-task" :class="state">
-    <div>
-      <span>
-        <font-awesome-icon :icon="['fas', 'check']" />
-        {{ computedValue }}
-      </span>
-    </div>
-    <div class="task-control">
-      <button @click="deleteTask">
-        <font-awesome-icon :icon="['fas', 'trash']" />
-      </button>
+    <div v-else class="task-row completed-task" :class="state">
+      <div>
+        <span>
+          <font-awesome-icon :icon="['fas', 'check']" />
+          {{ computedValue }}
+        </span>
+      </div>
+      <div class="task-control">
+        <button @click="deleteTask">
+          <font-awesome-icon :icon="['fas', 'trash']" />
+        </button>
+      </div>
     </div>
   </li>
 </template>
@@ -86,6 +88,9 @@ watch(
   border-bottom: 1px solid black;
   padding: 5px;
   align-items: center;
+}
+.task-item {
+  list-style-type: none;
 }
 .task-control {
   display: flex;

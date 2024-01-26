@@ -36,7 +36,7 @@ import type Task from "@/types/task";
 
 const toDoInput = ref("");
 const filterValue = ref("");
-let toDoListStorage = useStorage("to_do_list", [] as Task[]).value;
+const toDoListStorage = ref([] as Task[]);
 
 const addItemToList = () => {
   if (toDoInput.value) {
@@ -45,26 +45,31 @@ const addItemToList = () => {
       subject: toDoInput.value,
       state: "new",
     };
-    toDoListStorage
-      ? toDoListStorage.push(newTask)
-      : (toDoListStorage = [newTask]);
+    toDoListStorage.value
+      ? toDoListStorage.value.push(newTask)
+      : (toDoListStorage.value = [newTask]);
     toDoInput.value = "";
   }
 };
 const deleteTaskFromList = (id: number) => {
-  toDoListStorage.splice(
-    toDoListStorage.findIndex((value: Task) => value.time === id),
+  toDoListStorage.value.splice(
+    toDoListStorage.value.findIndex((value: Task) => value.time === id),
     1,
   );
 };
 const changeTask = (id: number, subject: string) => {
-  toDoListStorage.find((value: Task) => value.time === id).subject = subject;
+  toDoListStorage.value.find((value: Task) => value.time === id).subject =
+    subject;
 };
 const completeTask = (id: number) => {
-  toDoListStorage.find((value: Task) => value.time === id).state = "completed";
+  toDoListStorage.value.find((value: Task) => value.time === id).state =
+    "completed";
 };
+onMounted(() => {
+  toDoListStorage.value = useStorage("to_do_list", [] as Task[]).value;
+});
 const filteredList = computed(() =>
-  toDoListStorage
+  toDoListStorage.value
     ?.filter((el) =>
       filterValue.value ? el.subject.includes(filterValue.value) : el,
     )
