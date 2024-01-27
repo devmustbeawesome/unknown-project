@@ -25,17 +25,18 @@ body {
   height: 100vh;
 }
 .container {
-  padding: 0 10px;
+  width: 100vw;
+  padding: 10px;
   margin-right: auto;
   margin-left: auto;
 }
 @media (min-width: 768px) {
-  .container {
+  /* .container {
     width: 750px;
-  }
-  main {
+  } */
+  /* main {
     display: flex;
-  }
+  } */
 }
 @media (min-width: 992px) {
   .container {

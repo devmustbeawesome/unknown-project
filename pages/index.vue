@@ -1,11 +1,44 @@
 <template>
   <div class="container">
     <h1>index</h1>
+    <swiper
+      :modules="modules"
+      :slides-per-view="1"
+      :space-between="50"
+      :autoplay="{ delay: 1000, disableOnInteraction: false }"
+      :scrollbar="{ draggable: true }"
+    >
+      <swiper-slide>
+        <picture>
+          <source srcset="/swiper-d.webp" media="(min-width: 600px)" />
+          <img src="/swiper-m.webp" alt="MDN" />
+        </picture>
+      </swiper-slide>
+      <swiper-slide
+        ><picture>
+          <source srcset="/jane-d.webp" media="(min-width: 600px)" />
+          <img src="/jane-m.webp" alt="jane" /> </picture
+      ></swiper-slide>
+      <swiper-slide>Slide 3</swiper-slide>
+    </swiper>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Scrollbar, A11y, Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/scrollbar";
+const modules = [Scrollbar, A11y, Autoplay];
+</script>
 
-<!-- <style scoped>
-
-</style> -->
+<style scoped>
+.swiper-slide {
+  background-color: rgb(22, 22, 22);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 20vh; */
+}
+</style>
