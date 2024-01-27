@@ -1,6 +1,11 @@
 <template>
   <header>
-    <div class="container">
+    <div class="container header_container">
+      <div class="header_logo-wrapper">
+        <a href="/">
+          <img src="/logo.webp" alt="logo of up" />
+        </a>
+      </div>
       <nav>
         <ul class="nav-list">
           <li v-for="(value, index) in links" :key="index">
@@ -27,10 +32,21 @@ header {
   margin: 0;
   padding: 10px;
 }
+.header_container {
+  display: flex;
+  align-items: center;
+}
+.header_logo-wrapper {
+  height: 30px;
+  margin-right: 15px;
+}
+.header_logo-wrapper img {
+  height: 100%;
+}
 header .nav-list {
   display: flex;
   margin: 0;
-  padding: 0 10px;
+  padding: 0;
 }
 header .nav-list li {
   list-style-type: none;
@@ -38,12 +54,18 @@ header .nav-list li {
 .nav-list .router-link {
   display: block;
   text-decoration: none;
-  color: white;
+  color: chocolate;
   padding: 10px;
   border-right: 1px solid black;
 }
+.nav-list .router-link:hover {
+  -moz-text-shadow: 0 0 10px white;
+  -webkit-text-shadow: 0 0 10px white;
+  text-shadow: 0 0 10px white;
+}
 .nav-list .router-link.router-link-active {
-  text-decoration: underline;
-  color: chocolate;
+  text-decoration: underline double;
+  color: white;
+  text-decoration-thickness: 2px;
 }
 </style>

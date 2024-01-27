@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     "@nuxtjs/eslint-module",
     "@vueuse/nuxt",
     "@nuxtjs/stylelint-module",
-    "nuxt-swiper",
+    // "nuxt-swiper",
   ],
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   eslint: {
@@ -14,13 +14,13 @@ export default defineNuxtConfig({
   stylelint: {
     lintOnStart: false,
   },
-  swiper: {
-    // Swiper options
-    //  ----------------------
-    // prefix: 'Swiper',
-    // styleLang: 'css',
-    // modules: ['navigation', 'pagination'], // all modules are imported by default
-  },
+  // swiper: {
+  //   Swiper options
+  //    ----------------------
+  //   prefix: 'Swiper',
+  //   styleLang: 'css',
+  //   modules: ['navigation', 'pagination'], // all modules are imported by default
+  // },
   build: {
     transpile: [
       "@fortawesome/vue-fontawesome",

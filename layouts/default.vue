@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <BlockHeader />
+  <BlockHeader />
+  <main>
     <slot />
-    <BlockFooter />
-  </div>
+  </main>
+  <BlockFooter />
 </template>
 <style>
 body {
@@ -19,15 +19,22 @@ body {
   font-size: 16px;
   line-height: 1.42857143;
 }
+#__nuxt {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
+  padding: 0 10px;
   margin-right: auto;
   margin-left: auto;
 }
 @media (min-width: 768px) {
   .container {
     width: 750px;
+  }
+  main {
+    display: flex;
   }
 }
 @media (min-width: 992px) {
