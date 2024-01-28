@@ -7,17 +7,34 @@
 </template>
 <style>
 body {
-  /* background: radial-gradient(
-    circle,
-    rgba(63, 5, 138, 1) 35%,
-    rgba(26, 5, 124, 1) 100%
-  ); */
-  background-color: #1a202c;
+  background-color: var(--main-bg-color);
   margin: 0;
-  color: aliceblue;
+  color: var(--text-color);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.42857143;
+}
+.light-mode body {
+  --main-bg-color: white;
+  --content-bg-color: rgb(165, 165, 165);
+  --text-color: black;
+  --accent-color: chocolate;
+  --stroke-color: black;
+}
+
+.dark-mode body {
+  --main-bg-color: #1a202c;
+  --content-bg-color: rgb(22, 22, 22);
+  --text-color: white;
+  --accent-color: chocolate;
+  --stroke-color: white;
+}
+.sepia-mode body {
+  --main-bg-color: #f1e7d0;
+  --content-bg-color: #433422;
+  --text-color: #9e641d;
+  --accent-color: chocolate;
+  --stroke-color: white;
 }
 #__nuxt {
   display: grid;
@@ -49,6 +66,7 @@ body {
   }
 }
 button {
-  background-color: chocolate;
+  background-color: var(--accent-color);
+  color: var(--stroke-color);
 }
 </style>

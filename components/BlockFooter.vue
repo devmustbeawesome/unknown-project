@@ -22,8 +22,8 @@
         </div>
       </div>
       <div class="footer_settings-block">
-        <div>смена языка(в будущем)</div>
-        <div>смена темы(в будущем)</div>
+        <ChooseLang></ChooseLang>
+        <ColorModeToggler></ColorModeToggler>
       </div>
     </div>
   </footer>
@@ -49,8 +49,8 @@ const links = ref([
 
 <style scoped>
 footer {
-  background: rgb(22, 22, 22);
-  color: #fff;
+  background: var(--content-bg-color);
+  color: var(--text-color);
   padding: 15px 0;
   margin-top: 20px;
 }
@@ -70,17 +70,17 @@ footer {
   flex-direction: column;
 }
 .footer_links-header {
-  color: white;
+  color: var(--text-color);
 }
 .footer_link {
-  color: chocolate;
+  color: var(--accent-color);
   text-decoration: none;
 }
 .footer_link:hover {
   text-decoration: none;
-  -moz-text-shadow: 0 0 10px white;
-  -webkit-text-shadow: 0 0 10px white;
-  text-shadow: 0 0 10px white;
+  -moz-text-shadow: 0 0 10px var(--accent-color);
+  -webkit-text-shadow: 0 0 10px var(--accent-color);
+  text-shadow: 0 0 10px var(--accent-color);
 }
 @media (max-width: 720px) {
   .footer_links-block {

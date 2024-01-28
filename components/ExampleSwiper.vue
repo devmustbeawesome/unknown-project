@@ -3,7 +3,7 @@
     :modules="modules"
     :slides-per-view="1"
     :space-between="50"
-    :autoplay="{ delay: 1000, disableOnInteraction: false }"
+    :autoplay="{ delay: 3000, disableOnInteraction: false }"
     :scrollbar="{ draggable: true }"
   >
     <swiper-slide>
@@ -32,7 +32,7 @@ const modules = [Scrollbar, A11y, Autoplay];
 
 <style scoped>
 .swiper-slide {
-  background-color: rgb(22, 22, 22);
+  background-color: var(--content-bg-color);
   display: flex;
   justify-content: center;
   align-items: center;

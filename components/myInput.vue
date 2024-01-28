@@ -82,7 +82,7 @@ function updateValue(value) {
   line-height: 1.5;
   text-align: center;
   white-space: nowrap;
-  border: 1px solid black;
+  border: 1px solid var(--stroke-color);
   border-radius: 5px;
 }
 .input-group[type="search"]::-webkit-search-cancel-button {

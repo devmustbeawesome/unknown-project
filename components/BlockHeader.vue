@@ -28,7 +28,7 @@ const links = ref([
 
 <style scoped>
 header {
-  background-color: rgb(22, 22, 22);
+  background-color: var(--content-bg-color);
   margin: 0;
   padding: 10px;
 }
@@ -54,18 +54,18 @@ header .nav-list li {
 .nav-list .router-link {
   display: block;
   text-decoration: none;
-  color: chocolate;
+  color: var(--accent-color);
   padding: 10px;
-  border-right: 1px solid black;
+  border-right: 1px solid var(--stroke-color);
 }
 .nav-list .router-link:hover {
-  -moz-text-shadow: 0 0 10px white;
-  -webkit-text-shadow: 0 0 10px white;
-  text-shadow: 0 0 10px white;
+  -moz-text-shadow: 0 0 10px var(--accent-color);
+  -webkit-text-shadow: 0 0 10px var(--accent-color);
+  text-shadow: 0 0 10px var(--accent-color);
 }
 .nav-list .router-link.router-link-active {
   text-decoration: underline double;
-  color: white;
+  color: var(--stroke-color);
   text-decoration-thickness: 2px;
 }
 </style>

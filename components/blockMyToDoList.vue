@@ -84,21 +84,21 @@ const filteredList = computed(() =>
 <style scoped>
 #my_to_do_list {
   position: relative;
-  background-color: rgb(22, 22, 22);
+  background-color: var(--content-bg-color);
   padding: 10px 20px;
   border-radius: 5px;
 }
 .todolist_header {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--stroke-color);
   padding-bottom: 10px;
 }
 .add-wrapper {
   display: flex;
 }
 .add-to-do-button {
-  color: white;
+  color: var(--stroke-color);
   width: 34px;
   height: 34px;
   margin-left: 20px;

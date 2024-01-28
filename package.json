@@ -19,6 +19,7 @@
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.4",
     "@nuxt/eslint-config": "^0.2.0",
+    "@nuxtjs/color-mode": "^3.3.2",
     "@nuxtjs/eslint-module": "^4.1.0",
     "@nuxtjs/stylelint-module": "^5.1.0",
     "commitizen": "^4.3.0",

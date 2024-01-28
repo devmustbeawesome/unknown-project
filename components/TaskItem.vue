@@ -85,7 +85,7 @@ watch(
 .task-row {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--stroke-color);
   padding: 5px;
   align-items: center;
 }
@@ -96,7 +96,7 @@ watch(
   display: flex;
 }
 .task-control button {
-  color: white;
+  color: var(--stroke-color);
   width: 34px;
   height: 34px;
   margin-left: 20px;
@@ -112,7 +112,7 @@ watch(
   width: 100%;
   background: inherit;
   border: none;
-  color: white;
+  color: var(--stroke-color);
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -125,7 +125,7 @@ watch(
 }
 .completed-task {
   background: inherit;
-  color: white;
+  color: var(--stroke-color);
   text-decoration-line: underline;
   text-decoration-color: green;
   text-underline-offset: 3px;

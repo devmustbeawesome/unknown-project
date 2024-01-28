@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     "@nuxtjs/eslint-module",
     "@vueuse/nuxt",
     "@nuxtjs/stylelint-module",
+    "@nuxtjs/color-mode",
   ],
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   eslint: {
