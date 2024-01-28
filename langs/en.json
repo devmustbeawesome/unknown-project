@@ -1,0 +1,6 @@
+{
+  "test": "test en",
+  "notifications": {
+    "new_episode": "Hello, {username}. A new episode of {show} just landed!"
+  }
+}

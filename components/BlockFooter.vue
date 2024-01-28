@@ -29,19 +29,22 @@
   </footer>
 </template>
 <script setup lang="ts">
-const links = ref([
+const { t } = useI18n({
+  useScope: "local",
+});
+const links = computed(() => [
   {
-    header: "Заголовок 1",
+    header: t("title1"),
     links: [
-      { href: "/", text: "main" },
-      { href: "/to-do-list", text: "MyToDoList" },
+      { href: "/", text: t("main_page") },
+      { href: "/to-do-list", text: t("to_do_list") },
     ],
   },
   {
-    header: "Заголовок 2",
+    header: t("title2"),
     links: [
-      { href: "/", text: "main" },
-      { href: "/to-do-list", text: "MyToDoList" },
+      { href: "/", text: t("main_page") },
+      { href: "/to-do-list", text: t("to_do_list") },
     ],
   },
 ]);
@@ -92,3 +95,19 @@ footer {
   }
 }
 </style>
+<i18n lang="json">
+{
+  "en": {
+    "title1": "Some title",
+    "title2": "Other title",
+    "main_page": "Main",
+    "to_do_list": "MyToDoList"
+  },
+  "ru": {
+    "title1": "Какой-то заголовок",
+    "title2": "Другой заголовок",
+    "main_page": "Главная",
+    "to_do_list": "Список задач"
+  }
+}
+</i18n>

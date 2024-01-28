@@ -31,13 +31,12 @@ const $colorMode = useColorMode();
 <style>
 .footer_color-mode {
   font-size: 20px;
-}
-ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-ul li {
+
+.footer_color-mode li {
   display: inline-block;
   padding: 5px;
 }

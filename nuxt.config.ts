@@ -6,7 +6,33 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxtjs/stylelint-module",
     "@nuxtjs/color-mode",
+    "@nuxtjs/i18n",
   ],
+  i18n: {
+    defaultLocale: "en",
+    locales: [
+      {
+        code: "en",
+        name: "EN",
+        iso: "en-US",
+        file: "en.json",
+      },
+      {
+        code: "ru",
+        name: "RU",
+        iso: "ru",
+        file: "ru.json",
+      },
+    ],
+    strategy: "no_prefix",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      redirectOn: "root",
+    },
+    langDir: "langs",
+    lazy: true,
+  },
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   eslint: {
     lintOnStart: false,

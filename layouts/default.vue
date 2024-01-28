@@ -15,8 +15,8 @@ body {
   line-height: 1.42857143;
 }
 .light-mode body {
-  --main-bg-color: white;
-  --content-bg-color: rgb(165, 165, 165);
+  --main-bg-color: #7cacf8;
+  --content-bg-color: #2849c4;
   --text-color: black;
   --accent-color: chocolate;
   --stroke-color: black;
@@ -48,9 +48,9 @@ body {
   margin-left: auto;
 }
 @media (min-width: 768px) {
-  /* .container {
+  .container {
     width: 750px;
-  } */
+  }
   /* main {
     display: flex;
   } */

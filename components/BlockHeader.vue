@@ -20,9 +20,12 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n({
+  useScope: "local",
+});
 const links = ref([
-  { href: "/", text: "main" },
-  { href: "/to-do-list", text: "MyToDoList" },
+  { href: "/", text: t("main_page") },
+  { href: "/to-do-list", text: t("to_do_list") },
 ]);
 </script>
 
@@ -69,3 +72,15 @@ header .nav-list li {
   text-decoration-thickness: 2px;
 }
 </style>
+<i18n lang="json">
+{
+  "en": {
+    "main_page": "Main",
+    "to_do_list": "MyToDoList"
+  },
+  "ru": {
+    "main_page": "Главная",
+    "to_do_list": "Список задач"
+  }
+}
+</i18n>

@@ -1,19 +1,29 @@
-<template>
-  <MySelect v-model="lang" :list="langList">
-    <template #default="{ spanValue }">
-      <span>
-        {{ spanValue }}
-      </span>
-    </template>
-  </MySelect>
-</template>
-
 <script setup>
-const lang = ref("en");
-const langList = new Map([
-  ["en", "English"],
-  ["ru", "Russian"],
-]);
+const { locale, locales, setLocale } = useI18n();
+
+const availableLocales = computed(() => {
+  return locales.value.filter((i) => i.code !== locale.value);
+});
+console.log(`current lang ${locale.value}`);
 </script>
 
-<!-- <style scoped></style> -->
+<template>
+  <button
+    v-for="locale in availableLocales"
+    :key="locale.code"
+    class="footer_choose-lang-button"
+    href="#"
+    @click.prevent.stop="setLocale(locale.code)"
+  >
+    {{ locale.name }}
+  </button>
+</template>
+<style scoped>
+.footer_choose-lang-button {
+  background: none;
+  border: 1px solid var(--accent-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+</style>

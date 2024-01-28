@@ -4,7 +4,7 @@
       <div class="add-wrapper">
         <MyInput
           v-model="toDoInput"
-          placeholder="New task"
+          :placeholder="t('new_task')"
           @keyup.enter="addItemToList"
         ></MyInput>
         <div>
@@ -16,7 +16,7 @@
       <div class="search-wrapper">
         <MyInput
           v-model="filterValue"
-          placeholder="Search"
+          :placeholder="t('search')"
           type="search"
         ></MyInput>
       </div>
@@ -33,6 +33,9 @@
 <script setup lang="ts">
 import { useStorage } from "@vueuse/core";
 import type Task from "@/types/task";
+const { t } = useI18n({
+  useScope: "local",
+});
 
 const toDoInput = ref("");
 const filterValue = ref("");
@@ -119,3 +122,15 @@ const filteredList = computed(() =>
   }
 }
 </style>
+<i18n lang="json">
+{
+  "en": {
+    "new_task": "New task",
+    "search": "Search"
+  },
+  "ru": {
+    "new_task": "Новая задача",
+    "search": "Поиск"
+  }
+}
+</i18n>
