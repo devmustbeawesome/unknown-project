@@ -112,7 +112,7 @@ watch(
   width: 100%;
   background: inherit;
   border: none;
-  color: var(--stroke-color);
+  color: var(--text-color);
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
