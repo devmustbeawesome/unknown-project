@@ -1,19 +1,21 @@
 <template>
   <div>
     <ul class="footer_color-mode">
-      <li
-        v-for="{ mode, icon } of modeList"
-        :key="mode"
-        :class="{
-          preferred: !$colorMode.unknown && mode === $colorMode.preference,
-          selected: !$colorMode.unknown && mode === $colorMode.value,
-        }"
-      >
-        <font-awesome-icon
-          :icon="['fas', icon]"
-          @click="$colorMode.preference = mode"
-        />
-      </li>
+      <ClientOnly>
+        <li
+          v-for="{ mode, icon } of modeList"
+          :key="mode"
+          :class="{
+            preferred: !$colorMode.unknown && mode === $colorMode.preference,
+            selected: !$colorMode.unknown && mode === $colorMode.value,
+          }"
+        >
+          <font-awesome-icon
+            :icon="['fas', icon]"
+            @click="$colorMode.preference = mode"
+          />
+        </li>
+      </ClientOnly>
     </ul>
   </div>
 </template>

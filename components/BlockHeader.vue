@@ -26,6 +26,7 @@ const { t } = useI18n({
 const links = ref([
   { href: "/", text: t("main_page") },
   { href: "/to-do-list", text: t("to_do_list") },
+  { href: "/posts", text: t("posts") },
 ]);
 </script>
 
@@ -76,11 +77,13 @@ header .nav-list li {
 {
   "en": {
     "main_page": "Main",
-    "to_do_list": "MyToDoList"
+    "to_do_list": "MyToDoList",
+    "posts": "Posts"
   },
   "ru": {
     "main_page": "Главная",
-    "to_do_list": "Список задач"
+    "to_do_list": "Список задач",
+    "posts": "Публикации"
   }
 }
 </i18n>
