@@ -18,7 +18,7 @@ body {
   --main-bg-color: #dce1e6;
   --content-bg-color: #fff;
   --text-color: black;
-  --accent-color: chocolate;
+  --accent-color: #a970ff;
   --stroke-color: white;
   --border-color: grey;
 }
@@ -27,7 +27,7 @@ body {
   --main-bg-color: #1a202c;
   --content-bg-color: rgb(22, 22, 22);
   --text-color: white;
-  --accent-color: chocolate;
+  --accent-color: #a970ff;
   --stroke-color: white;
   --border-color: grey;
 }
