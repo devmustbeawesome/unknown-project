@@ -85,7 +85,7 @@ watch(
 .task-row {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid var(--stroke-color);
+  border-bottom: 1px solid var(--border-color);
   padding: 5px;
   align-items: center;
 }

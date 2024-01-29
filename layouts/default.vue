@@ -15,11 +15,12 @@ body {
   line-height: 1.42857143;
 }
 .light-mode body {
-  --main-bg-color: #7cacf8;
-  --content-bg-color: #2849c4;
+  --main-bg-color: #dce1e6;
+  --content-bg-color: #fff;
   --text-color: black;
   --accent-color: chocolate;
-  --stroke-color: black;
+  --stroke-color: white;
+  --border-color: grey;
 }
 
 .dark-mode body {
@@ -28,6 +29,7 @@ body {
   --text-color: white;
   --accent-color: chocolate;
   --stroke-color: white;
+  --border-color: grey;
 }
 .sepia-mode body {
   --main-bg-color: #f1e7d0;
@@ -35,6 +37,7 @@ body {
   --text-color: #9e641d;
   --accent-color: chocolate;
   --stroke-color: white;
+  --border-color: grey;
 }
 #__nuxt {
   display: grid;

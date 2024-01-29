@@ -94,7 +94,7 @@ const filteredList = computed(() =>
 .todolist_header {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid var(--stroke-color);
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 10px;
 }
 .add-wrapper {

@@ -59,7 +59,7 @@ header .nav-list li {
   text-decoration: none;
   color: var(--accent-color);
   padding: 10px;
-  border-right: 1px solid var(--stroke-color);
+  border-right: 1px solid var(--border-color);
 }
 .nav-list .router-link:hover {
   -moz-text-shadow: 0 0 10px var(--accent-color);
@@ -68,7 +68,7 @@ header .nav-list li {
 }
 .nav-list .router-link.router-link-active {
   text-decoration: underline double;
-  color: var(--stroke-color);
+  color: var(--accent-color);
   text-decoration-thickness: 2px;
 }
 </style>

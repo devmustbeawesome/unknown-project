@@ -1,10 +1,10 @@
 <script setup>
-const { locale, locales, setLocale } = useI18n();
+// const { locale, locales, setLocale } = useI18n();
+const { locales, setLocale } = useI18n();
 
 const availableLocales = computed(() => {
   return locales.value.filter((i) => i.code !== locale.value);
 });
-console.log(`current lang ${locale.value}`);
 </script>
 
 <template>
@@ -25,5 +25,6 @@ console.log(`current lang ${locale.value}`);
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  color: var(--accent-color);
 }
 </style>
