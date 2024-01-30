@@ -1,6 +1,6 @@
 <template>
   <ul class="post-list">
-    <li v-for="post in postList" :key="post.id">
+    <li v-for="[index, post] in postList" :key="index">
       <PostItem :post="post"></PostItem>
     </li>
   </ul>
@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import type Post from "@/types/post";
 defineProps({
-  postList: { type: Array<Post>, required: true },
+  postList: { type: Map<number, Post>, required: true },
 });
 </script>
 

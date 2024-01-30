@@ -38,6 +38,7 @@ const links = computed(() => [
     links: [
       { href: "/", text: t("main_page") },
       { href: "/to-do-list", text: t("to_do_list") },
+      { href: "/users", text: t("users") },
     ],
   },
   {
@@ -103,14 +104,16 @@ footer {
     "title2": "Other title",
     "main_page": "Main",
     "to_do_list": "MyToDoList",
-    "posts": "Posts"
+    "posts": "Posts",
+    "users": "Пользователи"
   },
   "ru": {
     "title1": "Какой-то заголовок",
     "title2": "Другой заголовок",
     "main_page": "Главная",
     "to_do_list": "Список задач",
-    "posts": "Публикации"
+    "posts": "Публикации",
+    "users": "Пользователи"
   }
 }
 </i18n>

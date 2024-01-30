@@ -3,4 +3,5 @@ export default interface Post {
   title: string;
   body: string;
   userId: number;
+  userName: string | undefined;
 }
