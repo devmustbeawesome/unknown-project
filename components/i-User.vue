@@ -1,6 +1,6 @@
 <template>
   <div class="user-item">
-    <RouterLink class="router-link" :to="`/user/${user.id}`"
+    <RouterLink class="router-link" :to="`/users/${user.id}`"
       >{{ user.username }}
     </RouterLink>
   </div>

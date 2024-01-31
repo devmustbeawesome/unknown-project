@@ -1,5 +1,22 @@
 <template>
-  <div>{{ userInfo ? JSON.stringify(userInfo) : "404" }}</div>
+  <div class="container">
+    <div v-if="pendingGetUser">loading...</div>
+    <div v-else-if="userInfo" class="user-block">
+      <p>{{ userInfo.name }} ({{ userInfo.username }})</p>
+      <p>
+        <font-awesome-icon :icon="['fas', 'envelope']" />
+        {{ userInfo.email }}
+      </p>
+      <p>
+        <font-awesome-icon :icon="['fas', 'phone']" />
+        {{ userInfo.phone }}
+      </p>
+      <p>
+        <font-awesome-icon :icon="['fas', 'globe']" />
+        {{ userInfo.website }}
+      </p>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -14,13 +31,13 @@ const { id } = defineProps({
 
 const {
   data: userInfo,
-  // pending: pendingGetPostList,
-  // error: errorGetPostList,
-  // execute: getUserList,
-} = await useAsyncData<User[], FetchError>(
+  pending: pendingGetUser,
+  // error: errorGetUser,
+  // execute: getUser,
+} = await useAsyncData<User, FetchError>(
   "userInfo" + id,
   async () => {
-    return await $fetch<User[]>(
+    return await $fetch<User>(
       `https://jsonplaceholder.typicode.com/users/${id}`,
       {
         method: "get",

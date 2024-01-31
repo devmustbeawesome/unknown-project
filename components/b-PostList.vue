@@ -1,30 +1,22 @@
 <template>
-  <div class="posts_select-wrapper">
-    <label for="posts_select-user">{{ t("authors") }}</label>
-    <select id="posts_select-user" v-model="selectedUserid" name="user">
-      <option value="-1">{{ t("all") }}</option>
-      <option v-for="[id, user] in userMap" :key="id" :value="id">
-        {{ user.username }}
-      </option>
-    </select>
+  <div v-if="pendingGetUserList && pendingGetPostList">loading...</div>
+  <div v-else>
+    <SelectAuthor v-model="selectedUserid" :user-list="userMap" />
+    <l-Post :post-list="filteredPosts"></l-Post>
   </div>
-  <l-Post :post-list="filteredPosts"></l-Post>
 </template>
 
 <script setup lang="ts">
-// https://jsonplaceholder.typicode.com/posts/1/comments
 import type { FetchError } from "ofetch";
 import type Post from "@/types/post";
 import type User from "@/types/user";
-const { t } = useI18n({
-  useScope: "local",
-});
-const selectedUserid = ref("-1");
+
+const selectedUserid = ref(-1);
 const filteredPosts = computed(() => {
   const pMap = postList.value
     ?.filter(
       (el) =>
-        selectedUserid.value === "-1" || el.userId === +selectedUserid.value,
+        selectedUserid.value === -1 || el.userId === +selectedUserid.value,
     )
     .reduce((pMap, el) => {
       el.userName = userMap.value?.get(el.userId)?.username;
@@ -41,7 +33,7 @@ const userMap = computed(() =>
 );
 const {
   data: postList,
-  // pending: pendingGetPostList,
+  pending: pendingGetPostList,
   // error: errorGetPostList,
   // execute: getPostList,
 } = await useAsyncData<Post[], FetchError>(
@@ -60,7 +52,7 @@ const {
 // }
 const {
   data: userList,
-  // pending: pendingGetPostList,
+  pending: pendingGetUserList,
   // error: errorGetPostList,
   // execute: getUserList,
 } = await useAsyncData<User[], FetchError>(
@@ -79,30 +71,6 @@ const {
 // }
 </script>
 
-<style scoped>
-#posts_select-user {
-  /* width: 140px; */
-  height: 35px;
-  padding: 5px 35px 5px 5px;
-  font-size: 18px;
-  border: 2px solid #ccc;
-}
-.posts_select-wrapper {
-  margin-bottom: 25px;
-}
-label {
-  display: block;
-}
-</style>
-<i18n lang="json">
-{
-  "en": {
-    "all": "All",
-    "authors": "Authors"
-  },
-  "ru": {
-    "all": "Все",
-    "authors": "Авторы"
-  }
-}
-</i18n>
+<!-- <style scoped>
+
+</style> -->
