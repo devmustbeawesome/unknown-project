@@ -90,10 +90,10 @@ footer {
 @media (max-width: 720px) {
   .footer_links-block {
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   .footer_container {
-    justify-content: space-around;
+    justify-content: space-between;
   }
 }
 </style>

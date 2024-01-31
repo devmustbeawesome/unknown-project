@@ -22,7 +22,7 @@ defineProps({
   text-decoration: none;
   color: var(--accent-color);
   padding: 10px;
-  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 .user-item .router-link:hover {
   -moz-text-shadow: 0 0 10px var(--accent-color);

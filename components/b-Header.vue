@@ -1,25 +1,40 @@
 <template>
-  <header>
+  <header
+    v-outside="
+      () => {
+        showMobile = false;
+      }
+    "
+  >
     <div class="container header_container">
       <div class="header_logo-wrapper">
         <a href="/">
           <img src="/logo.webp" alt="logo of up" />
         </a>
       </div>
-      <nav>
-        <ul class="nav-list">
-          <li v-for="(value, index) in links" :key="index">
-            <RouterLink class="router-link" :to="value.href">{{
-              value.text
-            }}</RouterLink>
-          </li>
-        </ul>
-      </nav>
+      <div>
+        <button class="show-mobile-menu" @click="showMobile = !showMobile">
+          <font-awesome-icon v-show="!showMobile" :icon="['fas', 'bars']" />
+          <font-awesome-icon v-show="showMobile" :icon="['fas', 'xmark']" />
+        </button>
+        <nav class="header_nav" :class="showMobile && 'mobile-show'">
+          <ul class="nav-list">
+            <li v-for="(value, index) in links" :key="index">
+              <RouterLink
+                class="router-link"
+                :to="value.href"
+                @click="showMobile = !showMobile"
+                >{{ value.text }}</RouterLink
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const { t } = useI18n({
   useScope: "local",
 });
@@ -29,13 +44,27 @@ const links = ref([
   { href: "/posts", text: t("posts") },
   { href: "/users", text: t("users") },
 ]);
+const showMobile = ref(false);
+const vOutside = {
+  mounted: (el, binding) => {
+    el.clickOutsideEvent = (event) => {
+      if (!(el === event.target || el.contains(event.target))) {
+        binding.value(event);
+      }
+    };
+    document.addEventListener("click", el.clickOutsideEvent);
+  },
+  unmounted: (el) => {
+    document.removeEventListener("click", el.clickOutsideEvent);
+  },
+};
 </script>
 
-<style scoped>
+<style>
 header {
   background-color: var(--content-bg-color);
   margin: 0;
-  padding: 10px;
+  padding: 10px 0;
 }
 .header_container {
   display: flex;
@@ -72,6 +101,37 @@ header .nav-list li {
   text-decoration: underline double;
   color: var(--accent-color);
   text-decoration-thickness: 2px;
+}
+.show-mobile-menu {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .show-mobile-menu {
+    display: block;
+    border: none;
+    background: none;
+    font-size: 20px;
+    color: var(--accent-color);
+    cursor: pointer;
+  }
+  .header_nav {
+    display: none;
+  }
+  .header_nav.mobile-show {
+    background: var(--content-bg-color);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 70px;
+    width: 100vw;
+    /* height: calc(100vh - 70px); */
+    z-index: 5;
+  }
+  .header_nav .nav-list {
+    flex-direction: column;
+  }
 }
 </style>
 <i18n lang="json">

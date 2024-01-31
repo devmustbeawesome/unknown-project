@@ -4,10 +4,14 @@
       <!-- <RouterLink class="router-link" :to="`posts/${post.id}`">{{
         post.title
       }}</RouterLink> -->
-      <RouterLink class="router-link" :to="`posts`">
+      <RouterLink class="router-link" :to="`/posts`">
         {{ post.title }}
       </RouterLink>
-      <RouterLink class="router-link" :to="`/users/${post.userId}`">
+      <RouterLink
+        v-if="post.userName"
+        class="router-link"
+        :to="`/users/${post.userId}`"
+      >
         <font-awesome-icon :icon="['fas', 'user']" /> {{ post.userName }}
       </RouterLink>
     </div>

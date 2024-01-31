@@ -1,8 +1,11 @@
 <template>
-  <div class="container">
-    <div v-if="pendingGetUser">loading...</div>
-    <div v-else-if="userInfo" class="user-block">
-      <p>{{ userInfo.name }} ({{ userInfo.username }})</p>
+  <RouterLink class="back" :to="`/users`"
+    ><font-awesome-icon :icon="['fas', 'chevron-left']" /> back
+  </RouterLink>
+  <div v-if="pendingGetUser">loading...</div>
+  <div v-else-if="userInfo" class="user-block">
+    <div class="user-info">
+      <h1>{{ userInfo.name }} ({{ userInfo.username }})</h1>
       <p>
         <font-awesome-icon :icon="['fas', 'envelope']" />
         {{ userInfo.email }}
@@ -16,12 +19,16 @@
         {{ userInfo.website }}
       </p>
     </div>
+    <div v-if="!pendingGetPostList && filteredPosts" class="user-posts">
+      <l-Post :post-list="filteredPosts"></l-Post>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import type { FetchError } from "ofetch";
 import type User from "@/types/user";
+import type Post from "~/types/post";
 // const { t } = useI18n({
 //   useScope: "local",
 // });
@@ -48,14 +55,43 @@ const {
     server: false,
   },
 );
+const {
+  data: postList,
+  pending: pendingGetPostList,
+  // error: errorGetPostList,
+  // execute: getPostList,
+} = await useAsyncData<Post[], FetchError>(
+  "postList",
+  async () => {
+    return await $fetch<Post[]>("https://jsonplaceholder.typicode.com/posts", {
+      method: "get",
+    });
+  },
+  {
+    server: false,
+  },
+);
+const filteredPosts = computed(() => {
+  const pMap = postList.value
+    ?.filter((el) => id === "-1" || el.userId === +id)
+    .reduce((pMap, el) => {
+      // el.userName = userInfo.value?.username;
+      pMap.set(el.id, el);
+      return pMap;
+    }, new Map<number, Post>());
+  return pMap;
+});
 // async function reloadUsers() {
 //   await getUserList();
 // }
 </script>
 
-<!-- <style scoped>
-  
-  </style> -->
+<style scoped>
+.back {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+</style>
 
 <!-- <i18n lang="json">
 {

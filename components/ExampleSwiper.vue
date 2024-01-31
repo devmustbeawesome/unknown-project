@@ -38,4 +38,7 @@ const modules = [Scrollbar, A11y, Autoplay];
   align-items: center;
   /* height: 20vh; */
 }
+.swiper {
+  width: 100%;
+}
 </style>

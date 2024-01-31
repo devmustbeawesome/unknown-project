@@ -1,5 +1,7 @@
 <template>
-  <b-User :id="id"></b-User>
+  <div class="container">
+    <b-User :id="id"></b-User>
+  </div>
 </template>
 
 <script setup lang="ts">
