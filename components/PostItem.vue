@@ -7,7 +7,7 @@
       <RouterLink class="router-link" :to="`posts`">
         {{ post.title }}
       </RouterLink>
-      <RouterLink class="router-link" :to="`posts`">
+      <RouterLink class="router-link" :to="`/user/${post.userId}`">
         <font-awesome-icon :icon="['fas', 'user']" /> {{ post.userName }}
       </RouterLink>
     </div>
