@@ -51,8 +51,7 @@ body {
 .container {
   width: calc(100vw - 20px);
   padding: 10px;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
 }
 @media (min-width: 768px) {
   .container {

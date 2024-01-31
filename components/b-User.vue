@@ -63,22 +63,22 @@ const {
 } = await useAsyncData<Post[], FetchError>(
   "postList",
   async () => {
-    return await $fetch<Post[]>("https://jsonplaceholder.typicode.com/posts", {
-      method: "get",
-    });
+    return await $fetch<Post[]>(
+      `https://jsonplaceholder.typicode.com/users/${id}/posts`,
+      {
+        method: "get",
+      },
+    );
   },
   {
     server: false,
   },
 );
 const filteredPosts = computed(() => {
-  const pMap = postList.value
-    ?.filter((el) => id === "-1" || el.userId === +id)
-    .reduce((pMap, el) => {
-      // el.userName = userInfo.value?.username;
-      pMap.set(el.id, el);
-      return pMap;
-    }, new Map<number, Post>());
+  const pMap = postList.value?.reduce((pMap, el) => {
+    pMap.set(el.id, el);
+    return pMap;
+  }, new Map<number, Post>());
   return pMap;
 });
 // async function reloadUsers() {

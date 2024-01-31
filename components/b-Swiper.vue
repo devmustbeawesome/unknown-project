@@ -2,22 +2,14 @@
   <swiper
     :modules="modules"
     :slides-per-view="1"
-    :space-between="50"
+    :space-between="0"
     :autoplay="{ delay: 3000, disableOnInteraction: false }"
     :scrollbar="{ draggable: true }"
+    @swiper="onSwiper"
   >
-    <swiper-slide>
-      <picture>
-        <source srcset="/swiper-d.webp" media="(min-width: 600px)" />
-        <img src="/swiper-m.webp" alt="MDN" />
-      </picture>
+    <swiper-slide v-for="index in Object.keys(slots)" :key="index">
+      <slot :name="index" />
     </swiper-slide>
-    <swiper-slide
-      ><picture>
-        <source srcset="/jane-d.webp" media="(min-width: 600px)" />
-        <img src="/jane-m.webp" alt="jane" /> </picture
-    ></swiper-slide>
-    <swiper-slide>Slide 3</swiper-slide>
   </swiper>
 </template>
 
@@ -27,6 +19,12 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/scrollbar";
+const slots = useSlots();
+const controlledSwiper = ref(null);
+const onSwiper = (swiper: any) => {
+  controlledSwiper.value = swiper;
+};
+
 const modules = [Scrollbar, A11y, Autoplay];
 </script>
 
@@ -37,6 +35,9 @@ const modules = [Scrollbar, A11y, Autoplay];
   justify-content: center;
   align-items: center;
   /* height: 20vh; */
+}
+.swiper-slide picture {
+  width: 100%;
 }
 .swiper {
   width: 100%;
