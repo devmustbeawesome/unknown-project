@@ -22,8 +22,8 @@
         </div>
       </div>
       <div class="footer_settings-block">
-        <ChooseLang></ChooseLang>
-        <ColorModeToggler></ColorModeToggler>
+        <ChooseLang />
+        <ColorModeToggler />
       </div>
     </div>
   </footer>

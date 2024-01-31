@@ -1,9 +1,9 @@
 <template>
-  <BlockHeader />
+  <b-Header />
   <main>
     <slot />
   </main>
-  <BlockFooter />
+  <b-Footer />
 </template>
 <style>
 body {

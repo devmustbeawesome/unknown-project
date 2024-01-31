@@ -1,5 +1,5 @@
 <template>
-  <UserList :user-list="userMap"></UserList>
+  <l-User :user-list="userMap"></l-User>
 </template>
 
 <script setup lang="ts">

@@ -1,5 +1,5 @@
 <template>
-  <UserBlock :id="id"></UserBlock>
+  <b-User :id="id"></b-User>
 </template>
 
 <script setup lang="ts">

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1>{{ t("title") }}</h1>
-    <blockMyToDoList> </blockMyToDoList>
+    <b-MyToDoList />
   </div>
 </template>
 

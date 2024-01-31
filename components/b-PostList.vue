@@ -8,7 +8,7 @@
       </option>
     </select>
   </div>
-  <PostList :post-list="filteredPosts"></PostList>
+  <l-Post :post-list="filteredPosts"></l-Post>
 </template>
 
 <script setup lang="ts">

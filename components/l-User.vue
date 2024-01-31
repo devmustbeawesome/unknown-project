@@ -1,7 +1,7 @@
 <template>
   <ul class="user-list">
     <li v-for="[index, user] in userList" :key="index">
-      <userItem :user="user"></userItem>
+      <i-User :user="user"></i-User>
     </li>
   </ul>
 </template>

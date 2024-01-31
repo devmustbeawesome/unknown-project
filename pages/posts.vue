@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1>{{ t("title") }}</h1>
-    <PostBlock />
+    <b-PostList />
   </div>
 </template>
 <script setup>

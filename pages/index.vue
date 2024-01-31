@@ -1,12 +1,11 @@
 <template>
   <div class="container">
     <h1>{{ t("title") }}</h1>
-    <ExampleSwiper></ExampleSwiper>
+    <ExampleSwiper />
   </div>
 </template>
 
 <script setup lang="ts">
-import ExampleSwiper from "~/components/ExampleSwiper.vue";
 const { t } = useI18n({
   useScope: "local",
 });
