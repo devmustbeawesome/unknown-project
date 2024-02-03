@@ -1,5 +1,5 @@
 <template>
-  <swiper
+  <Swiper
     :modules="modules"
     :slides-per-view="1"
     :space-between="0"
@@ -7,10 +7,11 @@
     :scrollbar="{ draggable: true }"
     @swiper="onSwiper"
   >
-    <swiper-slide v-for="index in Object.keys(slots)" :key="index">
+    <Swiper-slide v-for="index in Object.keys(slots)" :key="index">
       <slot :name="index" />
-    </swiper-slide>
-  </swiper>
+    </Swiper-slide>
+  </Swiper>
+  <button @click="controlledSwiper.addSlide(1, `<div>tset<div>`)">test</button>
 </template>
 
 <script setup lang="ts">
