@@ -1,44 +1,48 @@
 <template>
-  <Swiper
-    :modules="modules"
-    :slides-per-view="1"
-    :space-between="0"
-    :autoplay="{ delay: 3000, disableOnInteraction: false }"
-    :scrollbar="{ draggable: true }"
-    @swiper="onSwiper"
-  >
-    <Swiper-slide v-for="index in Object.keys(slots)" :key="index">
+  <swiper-container :id="id" init="false" virtual="true">
+    <swiper-slide v-for="index in Object.keys(slots)" :key="index" lazy="true">
       <slot :name="index" />
-    </Swiper-slide>
-  </Swiper>
-  <button @click="controlledSwiper.addSlide(1, `<div>tset<div>`)">test</button>
+    </swiper-slide>
+  </swiper-container>
 </template>
 
 <script setup lang="ts">
-import { Scrollbar, A11y, Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/css";
-import "swiper/css/autoplay";
-import "swiper/css/scrollbar";
+import { register, type SwiperContainer } from "swiper/element/bundle";
+defineProps({
+  id: { type: String, required: true },
+});
 const slots = useSlots();
-const controlledSwiper = ref(null);
-const onSwiper = (swiper: any) => {
-  controlledSwiper.value = swiper;
+const swiperEl = ref();
+// swiper parameters
+const swiperParams = {
+  slidesPerView: 1,
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
+  navigation: true,
+  scrollbar: true,
+  on: {
+    init() {},
+  },
 };
+register();
 
-const modules = [Scrollbar, A11y, Autoplay];
+onMounted(() => {
+  swiperEl.value = document.querySelector("swiper-container");
+  Object.assign(swiperEl.value as SwiperContainer, swiperParams);
+  swiperEl.value?.initialize();
+});
 </script>
 
 <style scoped>
 .swiper-slide {
   background-color: var(--content-bg-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   /* height: 20vh; */
-}
-.swiper-slide picture {
-  width: 100%;
 }
 .swiper {
   width: 100%;

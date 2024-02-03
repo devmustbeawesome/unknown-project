@@ -58,4 +58,9 @@ export default defineNuxtConfig({
     classSuffix: "-mode",
     storageKey: "nuxt-color-mode",
   },
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag: string) => tag.startsWith("swiper-"),
+    },
+  },
 });

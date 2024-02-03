@@ -2,12 +2,18 @@
   <div class="container">
     <h1>{{ t("title") }}</h1>
     <SelectAlbum v-model="albumId" />
-    <b-Swiper>
-      <template v-for="pic in picArr" :key="pic.id" #[`pic_${pic.id}`]>
-        <picture loading="lazy">
-          <source :srcset="pic.url" media="(min-width: 600px)" />
-          <img :src="pic.thumbnailUrl" :alt="pic.title" />
-        </picture>
+    <b-Swiper :id="`main_swiper`">
+      <template
+        v-for="picture in pictureArr"
+        :key="picture.id"
+        #[`pic_${picture.id}`]
+      >
+        <div class="slider_img-wrapper">
+          <picture loading="lazy">
+            <source :srcset="picture.url" media="(min-width: 600px)" />
+            <img :src="picture.thumbnailUrl" :alt="picture.title" />
+          </picture>
+        </div>
       </template>
     </b-Swiper>
   </div>
@@ -20,12 +26,12 @@ const { t } = useI18n({
   useScope: "local",
 });
 const {
-  data: picArr,
+  data: pictureArr,
   // pending: pendingGetPicArr,
   // error: errorGetPicArr,
   // execute: executeGetPicArr,
 } = await useAsyncData<any, FetchError>(
-  "picArr",
+  "pictureArr",
   async () => {
     return await $fetch<any>(
       `https://jsonplaceholder.typicode.com/albums/${albumId.value}/photos`,
@@ -38,8 +44,11 @@ const {
 );
 </script>
 
-<!-- <style scoped>
-</style> -->
+<style scoped>
+.slider_img-wrapper img {
+  width: 100%;
+}
+</style>
 <i18n lang="json">
 {
   "en": {
