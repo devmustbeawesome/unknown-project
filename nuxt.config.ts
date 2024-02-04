@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@nuxtjs/i18n",
   ],
+
   i18n: {
     defaultLocale: "en",
     locales: [

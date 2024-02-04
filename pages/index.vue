@@ -9,7 +9,7 @@
         #[`pic_${picture.id}`]
       >
         <div class="slider_img-wrapper">
-          <picture loading="lazy">
+          <picture>
             <source :srcset="picture.url" media="(min-width: 600px)" />
             <img :src="picture.thumbnailUrl" :alt="picture.title" />
           </picture>

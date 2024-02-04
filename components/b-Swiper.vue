@@ -1,5 +1,5 @@
 <template>
-  <swiper-container :id="id" init="false" virtual="true">
+  <swiper-container :id="id" init="false">
     <swiper-slide v-for="index in Object.keys(slots)" :key="index" lazy="true">
       <slot :name="index" />
     </swiper-slide>
@@ -8,14 +8,18 @@
 
 <script setup lang="ts">
 import { register, type SwiperContainer } from "swiper/element/bundle";
+register();
+
 defineProps({
   id: { type: String, required: true },
 });
 const slots = useSlots();
 const swiperEl = ref();
+
 // swiper parameters
 const swiperParams = {
   slidesPerView: 1,
+  spaceBetween: 20,
   breakpoints: {
     640: {
       slidesPerView: 2,
@@ -30,7 +34,6 @@ const swiperParams = {
     init() {},
   },
 };
-register();
 
 onMounted(() => {
   swiperEl.value = document.querySelector("swiper-container");
