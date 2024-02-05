@@ -18,6 +18,9 @@ const swiperEl = ref();
 
 // swiper parameters
 const swiperParams = {
+  autoplay: {
+    delay: 2500,
+  },
   slidesPerView: 1,
   spaceBetween: 20,
   breakpoints: {
