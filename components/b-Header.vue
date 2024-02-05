@@ -38,7 +38,7 @@
 const { t } = useI18n({
   useScope: "local",
 });
-const links = ref([
+const links = computed(() => [
   { href: "/", text: t("main_page") },
   { href: "/to-do-list", text: t("to_do_list") },
   { href: "/posts", text: t("posts") },
