@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@nuxtjs/i18n",
   ],
+
   i18n: {
     defaultLocale: "en",
     locales: [
@@ -47,5 +48,20 @@ export default defineNuxtConfig({
       "@fortawesome/free-regular-svg-icons",
       "@fortawesome/free-solid-svg-icons",
     ],
+  },
+  colorMode: {
+    preference: "system",
+    fallback: "dark",
+    hid: "nuxt-color-mode-script",
+    globalName: "__NUXT_COLOR_MODE__",
+    componentName: "ColorScheme",
+    classPrefix: "",
+    classSuffix: "-mode",
+    storageKey: "nuxt-color-mode",
+  },
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag: string) => tag.startsWith("swiper-"),
+    },
   },
 });

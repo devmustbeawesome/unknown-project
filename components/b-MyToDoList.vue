@@ -21,7 +21,7 @@
         ></MyInput>
       </div>
     </div>
-    <ToDoList
+    <l-ToDo
       :list="filteredList"
       @update:delete-task="deleteTaskFromList"
       @update:change-task="changeTask"

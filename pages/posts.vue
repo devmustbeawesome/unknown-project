@@ -1,10 +1,9 @@
 <template>
   <div class="container">
     <h1>{{ t("title") }}</h1>
-    <b-MyToDoList />
+    <b-PostList />
   </div>
 </template>
-
 <script setup>
 const { t } = useI18n({
   useScope: "local",
@@ -16,10 +15,10 @@ const { t } = useI18n({
 <i18n lang="json">
 {
   "en": {
-    "title": "MyToDoList"
+    "title": "Posts"
   },
   "ru": {
-    "title": "Список задач"
+    "title": "Публикации"
   }
 }
 </i18n>

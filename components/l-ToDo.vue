@@ -1,6 +1,6 @@
 <template>
   <ul class="to-do-list">
-    <TaskItem
+    <i-Task
       v-for="value in list"
       :id="value.time"
       :key="value.time"
@@ -10,7 +10,7 @@
       @update:change-task="changeTask"
       @update:complete-task="completeTask"
     >
-    </TaskItem>
+    </i-Task>
   </ul>
 </template>
 

@@ -1,12 +1,13 @@
 <template>
   <div class="container">
     <h1>{{ t("title") }}</h1>
-    <ExampleSwiper></ExampleSwiper>
+    <SelectAlbum v-model="albumId" />
+    <PictureSwiper v-if="albumId !== -1" :album-id="albumId"></PictureSwiper>
   </div>
 </template>
 
 <script setup lang="ts">
-import ExampleSwiper from "~/components/ExampleSwiper.vue";
+const albumId = ref(-1);
 const { t } = useI18n({
   useScope: "local",
 });

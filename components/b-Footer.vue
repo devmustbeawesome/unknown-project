@@ -22,8 +22,8 @@
         </div>
       </div>
       <div class="footer_settings-block">
-        <ChooseLang></ChooseLang>
-        <ColorModeToggler></ColorModeToggler>
+        <ChooseLang />
+        <ColorModeToggler />
       </div>
     </div>
   </footer>
@@ -38,6 +38,7 @@ const links = computed(() => [
     links: [
       { href: "/", text: t("main_page") },
       { href: "/to-do-list", text: t("to_do_list") },
+      { href: "/users", text: t("users") },
     ],
   },
   {
@@ -45,6 +46,7 @@ const links = computed(() => [
     links: [
       { href: "/", text: t("main_page") },
       { href: "/to-do-list", text: t("to_do_list") },
+      { href: "/posts", text: t("posts") },
     ],
   },
 ]);
@@ -88,10 +90,10 @@ footer {
 @media (max-width: 720px) {
   .footer_links-block {
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   .footer_container {
-    justify-content: space-around;
+    justify-content: space-between;
   }
 }
 </style>
@@ -101,13 +103,17 @@ footer {
     "title1": "Some title",
     "title2": "Other title",
     "main_page": "Main",
-    "to_do_list": "MyToDoList"
+    "to_do_list": "MyToDoList",
+    "posts": "Posts",
+    "users": "Пользователи"
   },
   "ru": {
     "title1": "Какой-то заголовок",
     "title2": "Другой заголовок",
     "main_page": "Главная",
-    "to_do_list": "Список задач"
+    "to_do_list": "Список задач",
+    "posts": "Публикации",
+    "users": "Пользователи"
   }
 }
 </i18n>
