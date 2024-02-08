@@ -1,9 +1,9 @@
 <template>
-  <b-Header />
+  <AppHeader />
   <main>
     <slot />
   </main>
-  <b-Footer />
+  <AppFooter />
 </template>
 <style>
 html {

@@ -2,7 +2,10 @@
   <div class="container">
     <h1>{{ t("title") }}</h1>
     <SelectAlbum v-model="albumId" />
-    <PictureSwiper v-if="albumId !== -1" :album-id="albumId"></PictureSwiper>
+    <LazyPictureSwiper
+      v-show="albumId !== -1"
+      :album-id="albumId"
+    ></LazyPictureSwiper>
   </div>
 </template>
 
