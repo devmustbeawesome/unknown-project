@@ -43,7 +43,7 @@ const {
       },
     );
   },
-  { server: false, watch: [() => props.albumId] },
+  { server: false, watch: [() => props.albumId], immediate: false },
 );
 </script>
 

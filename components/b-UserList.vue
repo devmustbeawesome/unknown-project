@@ -1,5 +1,5 @@
 <template>
-  <l-User :user-list="userMap"></l-User>
+  <l-User v-if="userMap" :user-list="userMap"></l-User>
 </template>
 
 <script setup lang="ts">
@@ -28,7 +28,7 @@ const {
     });
   },
   {
-    server: false,
+    lazy: true,
   },
 );
 // async function reloadUsers() {

@@ -2,7 +2,7 @@
   <div v-if="pendingGetUserList && pendingGetPostList">loading...</div>
   <div v-else>
     <SelectAuthor v-model="selectedUserid" :user-list="userMap" />
-    <l-Post :post-list="filteredPosts"></l-Post>
+    <l-Post v-if="filteredPosts" :post-list="filteredPosts"></l-Post>
   </div>
 </template>
 
@@ -44,7 +44,7 @@ const {
     });
   },
   {
-    server: false,
+    lazy: true,
   },
 );
 // async function reloadPosts() {
@@ -63,7 +63,7 @@ const {
     });
   },
   {
-    server: false,
+    lazy: true,
   },
 );
 // async function reloadUsers() {

@@ -52,7 +52,7 @@ const {
     );
   },
   {
-    server: false,
+    lazy: true,
   },
 );
 const {
@@ -71,7 +71,7 @@ const {
     );
   },
   {
-    server: false,
+    lazy: true,
   },
 );
 const filteredPosts = computed(() => {

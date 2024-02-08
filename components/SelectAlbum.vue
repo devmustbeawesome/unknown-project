@@ -41,7 +41,7 @@ const {
       },
     );
   },
-  { server: false },
+  { lazy: true },
 );
 </script>
 <style scoped>
