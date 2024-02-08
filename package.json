@@ -24,6 +24,7 @@
     "@nuxtjs/eslint-module": "^4.1.0",
     "@nuxtjs/i18n": "^8.1.0",
     "@nuxtjs/stylelint-module": "^5.1.0",
+    "@testing-library/vue": "^8.0.2",
     "@vue/test-utils": "^2.4.4",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
