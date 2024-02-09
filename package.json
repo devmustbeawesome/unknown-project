@@ -13,7 +13,8 @@
     "lint": "npm run lint:js && npm run lint:prettier",
     "lintfix": "prettier --write --list-different . && npm run lint:js --fix",
     "prepare": "husky install",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "test": "vitest run"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.6.0",
