@@ -4,7 +4,7 @@ function getRandomInt(min: number, max: number) {
   return Math.floor(rand);
 }
 export default defineEventHandler(() => {
-  const fPath = `./server/api/words.json`;
+  const fPath = `./static/words.json`;
   let dataWords: { words: [] } = { words: [] };
   try {
     const data = fs.readFileSync(fPath, "utf8");
