@@ -13,7 +13,7 @@ const {
   "hangmanGetWord",
   async () => {
     return await (
-      await $fetch<String>(`/api/hangman`, {
+      await $fetch<String>("/api/hangman", {
         method: "get",
       })
     ).split("");
@@ -26,7 +26,16 @@ watch(
   usedLetters,
   () => {
     if (compareArrays(word.value ?? [], usedLetters.value)) {
+      Notification.addNotification({
+        message: "you won",
+        type: "success",
+        position: "bottom-center",
+        time: 0,
+        id: "",
+        onClick: () => refreshGame(),
+      });
       gameEnded.value = true;
+      // refreshGame();
     }
   },
   { deep: true },
@@ -36,12 +45,25 @@ watch(
   () => {
     if (triesLeft.value <= 0) {
       triesLeft.value = 0;
+      Notification.addNotification({
+        message: "you lose (the word was " + word.value?.join("") + ") ",
+        type: "error",
+        position: "bottom-center",
+        time: 0,
+        id: "",
+        onClick: () => refreshGame(),
+      });
       gameEnded.value = true;
+
+      // refreshGame();
     }
   },
   { deep: true },
 );
 const keyEventHandler = (e: KeyboardEvent) => {
+  if (gameEnded.value) {
+    return;
+  }
   const charCode = e.key.charCodeAt(0);
   if (charCode >= 1040 && charCode <= 1103) {
     const eKey = e.key.toLowerCase();
@@ -59,7 +81,6 @@ const compareArrays = (a: Array<string>, b: Array<string>) => {
       return false;
     }
   }
-
   return true;
 };
 const refreshGame = () => {
@@ -74,6 +95,7 @@ onMounted(() => {
 onUnmounted(() => {
   document.removeEventListener("keypress", keyEventHandler);
 });
+const Notification = useNotification();
 </script>
 
 <template>
@@ -101,6 +123,8 @@ onUnmounted(() => {
     </div>
     <button v-if="gameEnded" @click="refreshGame">Refresh</button>
     <p v-if="gameEnded">Game ended</p>
+
+    <NotificationsList />
   </div>
 </template>
 

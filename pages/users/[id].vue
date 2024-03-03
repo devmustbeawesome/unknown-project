@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <b-User :id="id"></b-User>
+    <b-User :id="id" />
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <ul class="post-list">
     <li v-for="[index, post] in postList" :key="index">
-      <i-Post :post="post"></i-Post>
+      <i-Post :post="post" />
     </li>
   </ul>
 </template>
