@@ -27,7 +27,7 @@ watch(
   usedLetters,
   () => {
     if (compareArrays(word.value ?? [], usedLetters.value).included) {
-      Notification.addNotification({
+      notificationId.value = Notification.addNotification({
         message: "you won",
         type: "success",
         position: "bottom-center",
@@ -80,7 +80,10 @@ const compareArrays = (a: Array<string> | null, b: Array<string>) => {
   const result: string[] = [];
   let included = true;
   if (!a) {
-    return { included, result: [] } as { included: boolean; result: string[] };
+    return { included, result: [] } as {
+      included: boolean;
+      result: string[];
+    };
   }
   for (let i = 0, length = a.length; i < length; i++) {
     if (b.includes(a[i])) {
