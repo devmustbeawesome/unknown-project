@@ -43,7 +43,7 @@ const onKey = (key: string) => {
 .key_board {
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin: 20px auto;
 }
 .key_board_row {
   display: flex;
@@ -56,6 +56,7 @@ const onKey = (key: string) => {
   text-align: center;
   line-height: 40px;
   cursor: pointer;
+  margin: 1px;
 }
 .key_board_key.accent-key {
   background-color: var(--accent-color);
@@ -64,5 +65,16 @@ const onKey = (key: string) => {
 .key_board_key.disabled-key {
   background-color: grey;
   cursor: default;
+}
+@media screen and (max-width: 600px) {
+  .key_board_key {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+  }
+
+  .key_board {
+    margin: 10px auto;
+  }
 }
 </style>
