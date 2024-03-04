@@ -39,7 +39,7 @@ const positions = ref([
 
 <style scoped>
 .notifications_wrapper {
-  position: absolute;
+  position: fixed;
   background: none;
   padding: 10px;
   display: flex;

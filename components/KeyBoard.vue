@@ -44,7 +44,7 @@ const onKey = (key: string) => {
   display: flex;
   flex-direction: column;
   margin: 20px auto;
-  width: calc(100% - 40px);
+  /* width: calc(100% - 40px); */
 }
 .key_board_row {
   display: grid;
