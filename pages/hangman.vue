@@ -2,6 +2,7 @@
 import type { FetchError } from "ofetch";
 
 const triesLeft = ref(6);
+const notificationId = ref("");
 const gameEnded = ref(false);
 const usedLetters: Ref<Array<string>> = ref([]);
 const {
@@ -45,7 +46,7 @@ watch(
   () => {
     if (triesLeft.value <= 0) {
       triesLeft.value = 0;
-      Notification.addNotification({
+      notificationId.value = Notification.addNotification({
         message: "you lose (the word was " + word.value?.join("") + ") ",
         type: "error",
         position: "bottom-center",
@@ -87,6 +88,8 @@ const refreshGame = () => {
   gameEnded.value = false;
   triesLeft.value = 6;
   usedLetters.value = [];
+  Notification.removeNotification(notificationId.value);
+  notificationId.value = "";
   getWord();
 };
 onMounted(() => {

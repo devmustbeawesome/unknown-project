@@ -15,6 +15,7 @@ const useNotification = () => {
       onClick: notification.onClick,
     });
     if (notification.time !== 0) setTimeout(() => removeNotification(id), 3000);
+    return id;
   };
   const getNotificationList = () => notificationList.value;
   const removeNotification = (id: string) => {
