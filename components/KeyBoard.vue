@@ -76,5 +76,20 @@ const onKey = (key: string) => {
   .key_board {
     margin: 10px auto;
   }
+  .game_body {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .key_board_key {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+
+  .key_board {
+    margin: 5px auto;
+  }
 }
 </style>
