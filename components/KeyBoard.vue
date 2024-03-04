@@ -44,20 +44,15 @@ const onKey = (key: string) => {
   display: flex;
   flex-direction: column;
   margin: 20px auto;
+  width: calc(100% - 40px);
 }
 .key_board_row {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1px;
+  margin-bottom: 5px;
 }
-.key_board_key {
-  width: 40px;
-  height: 40px;
-  border: 1px solid black;
-  text-align: center;
-  line-height: 40px;
-  cursor: pointer;
-  margin: 1px;
-}
+
 .key_board_key.accent-key {
   background-color: var(--accent-color);
   cursor: default;
@@ -66,30 +61,40 @@ const onKey = (key: string) => {
   background-color: grey;
   cursor: default;
 }
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 600px) {
   .key_board_key {
-    width: 25px;
-    height: 25px;
-    line-height: 25px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    margin: 1px;
   }
-
+}
+@media screen and (max-width: 600px) {
   .key_board {
-    margin: 10px auto;
+    margin: 10px;
+    width: calc(100% - 20px);
   }
   .game_body {
     flex-direction: column;
     margin-bottom: 10px;
   }
+  .key_board_key {
+    border: 1px solid black;
+    text-align: center;
+    cursor: pointer;
+    margin: 1px;
+  }
+  .key_board_row {
+    margin-bottom: 5px;
+  }
 }
 @media screen and (max-width: 420px) {
-  .key_board_key {
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-  }
-
   .key_board {
-    margin: 5px auto;
+    margin: 5px;
+    width: calc(100% - 10px);
   }
 }
 </style>
