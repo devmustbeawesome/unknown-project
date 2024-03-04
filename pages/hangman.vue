@@ -26,7 +26,7 @@ const {
 watch(
   usedLetters,
   () => {
-    if (compareArrays(word.value ?? [], usedLetters.value)) {
+    if (compareArrays(word.value ?? [], usedLetters.value).included) {
       Notification.addNotification({
         message: "you won",
         type: "success",
@@ -76,13 +76,20 @@ const keyEventHandler = (e: KeyboardEvent) => {
     }
   }
 };
-const compareArrays = (a: Array<string>, b: Array<string>) => {
+const compareArrays = (a: Array<string> | null, b: Array<string>) => {
+  const result: string[] = [];
+  let included = true;
+  if (!a) {
+    return { included, result: [] } as { included: boolean; result: string[] };
+  }
   for (let i = 0, length = a.length; i < length; i++) {
-    if (!b.includes(a[i])) {
-      return false;
+    if (b.includes(a[i])) {
+      result.push(a[i]);
+    } else {
+      included = false;
     }
   }
-  return true;
+  return { included, result } as { included: boolean; result: string[] };
 };
 const refreshGame = () => {
   gameEnded.value = false;
@@ -124,10 +131,13 @@ const Notification = useNotification();
         </div>
       </div>
     </div>
+
+    <KeyBoard
+      :disabled-keys="usedLetters"
+      :accent-keys="compareArrays(word, usedLetters).result"
+    />
     <button v-if="gameEnded" @click="refreshGame">Refresh</button>
     <p v-if="gameEnded">Game ended</p>
-
-    <NotificationsList />
   </div>
 </template>
 

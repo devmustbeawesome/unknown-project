@@ -4,6 +4,7 @@
     <slot />
   </main>
   <AppFooter />
+  <NotificationsList />
 </template>
 <style>
 html {
