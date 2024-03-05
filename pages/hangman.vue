@@ -70,6 +70,14 @@ const keyEventHandler = (e: KeyboardEvent) => {
     const eKey = e.key.toLowerCase();
     if (!usedLetters.value.includes(eKey)) {
       usedLetters.value.push(eKey);
+    } else {
+      Notification.addNotification({
+        message: `буква "${eKey}" уже использована`,
+        type: "info",
+        position: "bottom-center",
+        time: 2000,
+        id: "",
+      });
     }
     if (!word.value?.includes(eKey)) {
       triesLeft.value--;
