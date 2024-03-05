@@ -66,10 +66,23 @@ const keyEventHandler = (e: KeyboardEvent) => {
     return;
   }
   const charCode = e.key.charCodeAt(0);
-  if (charCode >= 1040 && charCode <= 1103) {
+  if (
+    (charCode >= 1040 && charCode <= 1103) ||
+    charCode === 1105 ||
+    charCode === 1025
+  ) {
     const eKey = e.key.toLowerCase();
     if (!usedLetters.value.includes(eKey)) {
       usedLetters.value.push(eKey);
+    } else {
+      Notification.addNotification({
+        message: `буква "${eKey}" уже использована`,
+        type: "info",
+        position: "bottom-center",
+        time: 2000,
+        id: "",
+      });
+      return;
     }
     if (!word.value?.includes(eKey)) {
       triesLeft.value--;

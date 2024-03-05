@@ -31,7 +31,9 @@ const onKey = (key: string) => {
           'accent-key': accentKeys.includes(key),
           'disabled-key': disabledKeys.includes(key),
         }"
-        @click="onKey(key)"
+        @click="
+          !disabledKeys.includes(key) && !accentKeys.includes(key) && onKey(key)
+        "
       >
         {{ key }}
       </div>
