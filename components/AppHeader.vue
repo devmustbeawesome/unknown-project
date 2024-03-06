@@ -24,8 +24,8 @@
                 class="router-link"
                 :to="value.href"
                 @click="showMobile = !showMobile"
-                >{{ value.text }}</RouterLink
-              >
+                >{{ value.text }}
+              </RouterLink>
             </li>
           </ul>
         </nav>
@@ -43,6 +43,7 @@ const links = computed(() => [
   { href: "/to-do-list", text: t("to_do_list") },
   { href: "/posts", text: t("posts") },
   { href: "/users", text: t("users") },
+  { href: "/hangman", text: t("hangman") },
 ]);
 const showMobile = ref(false);
 const vOutside = {
@@ -66,25 +67,31 @@ header {
   margin: 0;
   padding: 10px 0;
 }
+
 .header_container {
   display: flex;
   align-items: center;
 }
+
 .header_logo-wrapper {
   height: 30px;
   margin-right: 15px;
 }
+
 .header_logo-wrapper img {
   height: 100%;
 }
+
 header .nav-list {
   display: flex;
   margin: 0;
   padding: 0;
 }
+
 header .nav-list li {
   list-style-type: none;
 }
+
 .nav-list .router-link {
   display: block;
   text-decoration: none;
@@ -92,16 +99,19 @@ header .nav-list li {
   padding: 10px;
   border-right: 1px solid var(--border-color);
 }
+
 .nav-list .router-link:hover {
   -moz-text-shadow: 0 0 10px var(--accent-color);
   -webkit-text-shadow: 0 0 10px var(--accent-color);
   text-shadow: 0 0 10px var(--accent-color);
 }
+
 .nav-list .router-link.router-link-active {
   text-decoration: underline double;
   color: var(--accent-color);
   text-decoration-thickness: 2px;
 }
+
 .show-mobile-menu {
   display: none;
 }
@@ -115,9 +125,11 @@ header .nav-list li {
     color: var(--accent-color);
     cursor: pointer;
   }
+
   .header_nav {
     display: none;
   }
+
   .header_nav.mobile-show {
     background: var(--content-bg-color);
     display: flex;
@@ -129,24 +141,28 @@ header .nav-list li {
     /* height: calc(100vh - 70px); */
     z-index: 5;
   }
+
   .header_nav .nav-list {
     flex-direction: column;
   }
 }
 </style>
+
 <i18n lang="json">
 {
   "en": {
     "main_page": "Main",
     "to_do_list": "MyToDoList",
     "posts": "Posts",
-    "users": "Users"
+    "users": "Users",
+    "hangman": "Hangman"
   },
   "ru": {
     "main_page": "Главная",
     "to_do_list": "Список задач",
     "posts": "Публикации",
-    "users": "Пользователи"
+    "users": "Пользователи",
+    "hangman": "Виселица"
   }
 }
 </i18n>

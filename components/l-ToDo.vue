@@ -9,8 +9,7 @@
       @update:delete-task="deleteTask"
       @update:change-task="changeTask"
       @update:complete-task="completeTask"
-    >
-    </i-Task>
+    />
   </ul>
 </template>
 
